@@ -4,7 +4,7 @@ using System.Collections;
 public class KeyBehaviour : MonoBehaviour
 {
 
-    void OnCollsionEnter(Collision other)
+    void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Player")
         {
