@@ -13,7 +13,7 @@ public class ShockWave : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("ShockWave"))
         {
             shockWave.Play();
         }
