@@ -50,6 +50,7 @@
      <Compile Include="Assets\KeyBehaviour.cs" />
      <Compile Include="Assets\Scripts\CameraRotate.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
+     <Compile Include="Assets\Scripts\ShockCone.cs" />
      <Compile Include="Assets\Scripts\ShockSphere.cs" />
      <Compile Include="Assets\Scripts\ShockWave.cs" />
      <Compile Include="Assets\Scripts\UpAndDown.cs" />
