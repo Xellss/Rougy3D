@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-[RequireComponent(typeof(ParticleSystem))]
-public class ShockCone : MonoBehaviour {
 
+[RequireComponent(typeof(ParticleSystem))]
+public class ShockCone : MonoBehaviour
+{
     ParticleSystem shockCone;
 
     void Awake()
@@ -13,8 +14,6 @@ public class ShockCone : MonoBehaviour {
     void Update()
     {
         if (Input.GetButtonDown("ShockCone"))
-        {
             shockCone.Play();
-        }
     }
 }

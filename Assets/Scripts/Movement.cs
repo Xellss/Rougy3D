@@ -3,29 +3,42 @@ using System.Collections;
 
 public class Movement : MonoBehaviour
 {
+    public float LookAtSpeed = 1;
     public float JumpPower = 1;
 
-    bool jump = false;
+    [HideInInspector]
+    public bool Grounded = true;
 
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Cube")
-        {
-            
-        }
-    }
+    bool jump = false;
 
     void Update()
     {
         float x = Input.GetAxis("Vertical");
         float MouseX = Input.GetAxis("Mouse X");
+        float z = Input.GetAxis("Horizontal");
 
-        transform.Translate(x, 0, 0);
+        if (Input.GetButton("LookRight"))
+            transform.Rotate(0, LookAtSpeed, 0, Space.Self);
+
+        if (Input.GetButton("LookLeft"))
+            transform.Rotate(0, -LookAtSpeed, 0, Space.Self);
+
+        transform.Translate(x * Time.deltaTime * 10, 0, -z * Time.deltaTime * 10);
         transform.Rotate(0, MouseX, 0);
 
-        //if (Input.GetButtonDown("Jump") & !jump)
-        //{
-        //    transform.Translate(0, JumpPower, 0);
-        //}
+        if (Input.GetButtonDown("Jump") & !jump)
+            transform.Translate(0, JumpPower, 0);
     }
+
+    void OnCollisionEnter(Collision other)
+    {
+        Grounded = true;
+        print(Grounded);
+    }
+    void OnCollisionExit(Collision other)
+    {
+        Grounded = false;
+        print(Grounded);
+    }
+
 }
